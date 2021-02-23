@@ -2,7 +2,6 @@
 
 // 1. prepara una lista di mail
 var mailsOk = ["steve.jobs","mark.zuckerberg","bill.gates","jeff.bezos","tim.cook"];
-console.log(mailsOk);
 
 // 2. chiedi all'utente la mail memorizzandola con un button che dà l'istruzione di memorizzazione
 // 3. controlla che la mail sia nella lista, operazione che può essere fatta immediatamente dopo la memorizzazione, sempre come conseguenza del click
@@ -32,7 +31,7 @@ function () {
   
     var alertMail = document.getElementById("alert-mail");
   
-    // stampo il messaggio
+    // stampo il messaggio: lo faccio qui e non nel ciclo for perchè altrimenti mi si continuano ad aggiungere classi
     if (outcome == "yes") {
       alertMail.innerHTML = "Sei iscritto!";
       alertMail.className = alertMail.classList + " ms-alert-ok";
@@ -70,6 +69,12 @@ function () {
 // /esercizio mail
 
 // esercizio dadi
+
+// non è necessario utilizzare array ma sarebbe stato carino generare un array di numeri da 1 a 6 in questo modo:
+// var array = [];
+// for (var i = 1; i <= 6; i++) {
+//   array.push(i);
+// }
 
 var btnNumber = document.getElementById("generate-numbers");
 
