@@ -53,7 +53,7 @@ function () {
 }
 );
 
-// quando ri-clicco nella casella di testo voglio che la classe di alertName attribuita venga eliminata (altrimenti ogni volta che clicco invio senza refreshare la pagina mi va ad aggiungere una classe), oltre a ripulire tutto
+// quando ri-clicco nella casella di testo voglio che la classe di alertName attribuita venga eliminata (altrimenti ogni volta che clicco "invio" senza refreshare la pagina, mi si aggiunge una classe), oltre a ripulire tutto
 
 var inputSpace = document.getElementById("input-mail");
 
@@ -98,7 +98,7 @@ function () {
   var alertNumberComputer = document.getElementById("alert-number-computer");
   alertNumberComputer.innerHTML = "Il computer ha dato come risultato: " + numberRandomComputer + "!";
 
-  // avvisi
+  // avviso di vittoria o meno
   var alertWinner = document.getElementById("alert-winner");
   if (numberRandomComputer > numberRandomUser) {
     alertWinner.innerHTML = "Hai perso!";
