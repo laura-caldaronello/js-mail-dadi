@@ -28,6 +28,14 @@ function () {
       }
       
     }
+
+    // alternativa per il check più rapida
+    // if (mailsOk.indexOf(userMail) != -1) {
+    //   outcome = "yes";
+    // }
+    // else {
+    //   outcome = "no";
+    // }
   
     var alertMail = document.getElementById("alert-mail");
   
