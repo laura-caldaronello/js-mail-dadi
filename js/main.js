@@ -77,37 +77,34 @@ for (var i = 1; i <= 6; i++) { /* potevo farla più semplice ma questo mi coprir
   dice.push(i);
 }
 
-// tirare il dado per l'utente
-var btnNumber = document.getElementById("generate-number-user");
+// 2. tirare i dadi
+var btnNumber = document.getElementById("generate-numbers");
 
 btnNumber.addEventListener ('click',
 function () {
+  // numero utente
   var indexRandom = Math.floor(Math.random() * 6);
   var numberRandomUser = dice[indexRandom];
   var alertNumberUser = document.getElementById("alert-number-user");
-  alertNumberUser.innerHTML = "Il dado ha dato come risultato: " + numberRandomUser + "!";
+  alertNumberUser.innerHTML = "Il tuo dado ha dato come risultato: " + numberRandomUser + "!";
 
-  var btnNumber = document.getElementById("generate-number-computer");
-  
-  btnNumber.addEventListener ('click',
-  function () {
-    var indexRandom = Math.floor(Math.random() * 6);
-    var numberRandomComputer = dice[indexRandom];
-    var alertNumberComputer = document.getElementById("alert-number-computer");
-    alertNumberComputer.innerHTML = "Il dado ha dato come risultato: " + numberRandomComputer + "!";
+  // numero computer
+  var indexRandom = Math.floor(Math.random() * 6);
+  var numberRandomComputer = dice[indexRandom];
+  var alertNumberComputer = document.getElementById("alert-number-computer");
+  alertNumberComputer.innerHTML = "Il computer ha dato come risultato: " + numberRandomComputer + "!";
 
-    var alertWinner = document.getElementById("alert-winner");
-    if (numberRandomComputer > numberRandomUser) {
-      alertWinner.innerHTML = "Hai perso!";
-    }
-    else if (numberRandomComputer = numberRandomUser) {
-      alertWinner.innerHTML = "Hai vinto!";
-    }
-    else {
-      alertWinner.innerHTML = "Pareggio!";
-    }
+  // avvisi
+  var alertWinner = document.getElementById("alert-winner");
+  if (numberRandomComputer > numberRandomUser) {
+    alertWinner.innerHTML = "Hai perso!";
   }
-  );
+  else if (numberRandomComputer = numberRandomUser) {
+    alertWinner.innerHTML = "Hai vinto!";
+  }
+  else {
+    alertWinner.innerHTML = "Pareggio!";
+  }
 
 }
 );
