@@ -71,26 +71,17 @@ function () {
 
 // esercizio dadi
 
-// 1. generare l'array (provo senza usare math.random)
-var dice = [];
-for (var i = 1; i <= 6; i++) { /* potevo farla più semplice ma questo mi coprirebbe anche casi con array più lunghi */
-  dice.push(i);
-}
-
-// 2. tirare i dadi
 var btnNumber = document.getElementById("generate-numbers");
 
 btnNumber.addEventListener ('click',
 function () {
   // numero utente
-  var indexRandom = Math.floor(Math.random() * 6);
-  var numberRandomUser = dice[indexRandom];
+  var numberRandomUser = Math.floor(Math.random() * 5) + 1;
   var alertNumberUser = document.getElementById("alert-number-user");
   alertNumberUser.innerHTML = "Il tuo dado ha dato come risultato: " + numberRandomUser + "!";
 
   // numero computer
-  var indexRandom = Math.floor(Math.random() * 6);
-  var numberRandomComputer = dice[indexRandom];
+  var numberRandomComputer = Math.floor(Math.random() * 5) + 1;
   var alertNumberComputer = document.getElementById("alert-number-computer");
   alertNumberComputer.innerHTML = "Il computer ha dato come risultato: " + numberRandomComputer + "!";
 
@@ -99,7 +90,7 @@ function () {
   if (numberRandomComputer > numberRandomUser) {
     alertWinner.innerHTML = "Hai perso!";
   }
-  else if (numberRandomComputer = numberRandomUser) {
+  else if (numberRandomComputer < numberRandomUser) {
     alertWinner.innerHTML = "Hai vinto!";
   }
   else {
