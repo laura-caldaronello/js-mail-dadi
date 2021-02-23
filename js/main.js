@@ -12,13 +12,13 @@ var btnSubmitMail = document.getElementById('submit-mail');
 btnSubmitMail.addEventListener('click',
 function () {
 
-  var userMail = document.getElementById("input-mail").value;
+  var userMail = document.getElementById("input-mail").value; /* memorizza la mail */
 
   if (userMail != "") { /* mi assicuro che ci sia qualcosa nella casella di testo */
 
     var outcome; /* in base a questo si deciderà quale messaggio stampare */
   
-    for (var i = 0; i < mailsOk.length; i++) {
+    for (var i = 0; i < mailsOk.length; i++) { /* controllo se è nella lista */
   
       if (userMail == mailsOk[i]) {
         outcome = "yes";
@@ -32,6 +32,7 @@ function () {
   
     var alertMail = document.getElementById("alert-mail");
   
+    // stampo il messaggio
     if (outcome == "yes") {
       alertMail.innerHTML = "Sei iscritto!";
       alertMail.className = alertMail.classList + " ms-alert-ok";
@@ -67,3 +68,48 @@ function () {
 // VEDERE SE POSSO EVITARE CHE AD OGNI CLICK CONSECUTIVO SI CONTINUINO AD AGGIUNGERE CLASSI AD alert-mail
 
 // /esercizio mail
+
+// esercizio dadi
+
+// 1. generare l'array (provo senza usare math.random)
+var dice = [];
+for (var i = 1; i <= 6; i++) { /* potevo farla più semplice ma questo mi coprirebbe anche casi con array più lunghi */
+  dice.push(i);
+}
+
+// tirare il dado per l'utente
+var btnNumber = document.getElementById("generate-number-user");
+
+btnNumber.addEventListener ('click',
+function () {
+  var indexRandom = Math.floor(Math.random() * 6);
+  var numberRandomUser = dice[indexRandom];
+  var alertNumberUser = document.getElementById("alert-number-user");
+  alertNumberUser.innerHTML = "Il dado ha dato come risultato: " + numberRandomUser + "!";
+
+  var btnNumber = document.getElementById("generate-number-computer");
+  
+  btnNumber.addEventListener ('click',
+  function () {
+    var indexRandom = Math.floor(Math.random() * 6);
+    var numberRandomComputer = dice[indexRandom];
+    var alertNumberComputer = document.getElementById("alert-number-computer");
+    alertNumberComputer.innerHTML = "Il dado ha dato come risultato: " + numberRandomComputer + "!";
+
+    var alertWinner = document.getElementById("alert-winner");
+    if (numberRandomComputer > numberRandomUser) {
+      alertWinner.innerHTML = "Hai perso!";
+    }
+    else if (numberRandomComputer = numberRandomUser) {
+      alertWinner.innerHTML = "Hai vinto!";
+    }
+    else {
+      alertWinner.innerHTML = "Pareggio!";
+    }
+  }
+  );
+
+}
+);
+
+// /esercizio dadi
