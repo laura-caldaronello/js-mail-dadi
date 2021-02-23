@@ -38,41 +38,25 @@ function () {
     // }
   
     var alertMail = document.getElementById("alert-mail");
+    var list = alertMail.classList;
   
     // stampo il messaggio: lo faccio qui e non nel ciclo for perchè altrimenti mi si continuano ad aggiungere classi
     if (outcome == "yes") {
       alertMail.innerHTML = "Sei iscritto!";
-      alertMail.className = alertMail.classList + " ms-alert-ok";
+      list.remove("ms-alert-ok");
+      list.remove("ms-alert-not-ok"); /* queste due istruzioni, analoghe nell'else if, servono a evitare che ad ogni click successivo al primo si aggiunga una classe ms-alert-ok */
+      alertMail.className = list + " ms-alert-ok";
     }
     else if (outcome == "no") {
       alertMail.innerHTML = "Non sei iscritto!";
-      alertMail.className = alertMail.classList + " ms-alert-not-ok";
+      list.remove("ms-alert-ok");
+      list.remove("ms-alert-not-ok");
+      alertMail.className = list + " ms-alert-not-ok";
     }
     
   }
 }
 );
-
-// quando ri-clicco nella casella di testo voglio che la classe di alertName attribuita venga eliminata (altrimenti ogni volta che clicco "invio" senza refreshare la pagina, mi si aggiunge una classe), oltre a ripulire tutto
-
-var inputSpace = document.getElementById("input-mail");
-
-inputSpace.addEventListener('click', 
-function () {
-
-  var alertMail = document.getElementById("alert-mail");
-  var list = alertMail.classList;
-
-  list.remove("ms-alert-not-ok");
-  list.remove("ms-alert-ok");
-
-  alertMail.innerHTML = "";
-  document.getElementById("input-mail").value = "";
-
-}
-);
-
-// VEDERE SE POSSO EVITARE CHE AD OGNI CLICK CONSECUTIVO SI CONTINUINO AD AGGIUNGERE CLASSI AD alert-mail
 
 // /esercizio mail
 
